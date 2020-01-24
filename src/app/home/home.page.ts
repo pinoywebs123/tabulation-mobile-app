@@ -13,7 +13,7 @@ export class HomePage {
   ) {}
 
   clickEvent(){
-    this.router.navigateByUrl('/candidate');
+    this.router.navigateByUrl('/pevent');
   }
 
 }

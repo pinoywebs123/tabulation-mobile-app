@@ -14,7 +14,7 @@ export class LoginPage implements OnInit {
     private authServ: AuthService
   ) { }
    
-  public morley : any;
+  public morley = " Server Not Detected";
 
   ngOnInit() {
   }

@@ -24,13 +24,18 @@ const routes: Routes = [
     loadChildren: () => import('./candidate/candidate.module').then( m => m.CandidatePageModule)
   },
   {
-    path: 'candidateinfo',
+    path: 'candidateinfo/:id',
     loadChildren: () => import('./candidateinfo/candidateinfo.module').then( m => m.CandidateinfoPageModule)
   },
   {
     path: 'about',
     loadChildren: () => import('./about/about.module').then( m => m.AboutPageModule)
+  },
+  {
+    path: 'pevent',
+    loadChildren: () => import('./pevent/pevent.module').then( m => m.PeventPageModule)
   }
+
 ];
 
 @NgModule({

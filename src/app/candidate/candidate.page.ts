@@ -22,11 +22,11 @@ export class CandidatePage implements OnInit {
   }
 
   clickBack(){
-    this.router.navigateByUrl('/home');
+    this.router.navigateByUrl('/pevent');
   }
 
-  clickCandidate(){
-
+  clickCandidate(id){
+    this.router.navigateByUrl('/candidateinfo/'+id);
   }
 
 }

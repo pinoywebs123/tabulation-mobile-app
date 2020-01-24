@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar color="danger">
+    <ion-title>Pre-Event</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list>
+
+    <ion-item (click)="clickPreEvent()">
+      <ion-icon name="ribbon" slot="start"></ion-icon>
+      <ion-label>Pre Event Description....</ion-label>
+    </ion-item>
+
+    <ion-item (click)="clickPreEvent()">
+      <ion-icon name="ribbon" slot="start"></ion-icon>
+      <ion-label>Pre Event Description....</ion-label>
+    </ion-item>
+
+  </ion-list>
+
+</ion-content>
+<ion-footer>
+  <ion-toolbar color="danger" class="ion-text-center">
+
+    <ion-buttons slot="secondary">
+      <ion-button (click)="clickBack()">
+        <ion-icon slot="icon-only" name="skip-backward"></ion-icon>
+      </ion-button>
+      <ion-button>
+        <ion-icon slot="icon-only" name="home"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+   
+  </ion-toolbar>
