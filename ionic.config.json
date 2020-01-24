@@ -1,5 +1,7 @@
 {
   "name": "tabulation",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
