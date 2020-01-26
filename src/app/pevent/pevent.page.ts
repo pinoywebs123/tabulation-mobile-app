@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-pevent',
@@ -8,15 +9,31 @@ import { Router } from '@angular/router';
 })
 export class PeventPage implements OnInit {
 
+  public event_id : any;
+  public data: any;
   constructor(
-    private router: Router
+    private router: Router,
+    private authServ: AuthService,
+    private routes: ActivatedRoute
   ) { }
+
+  ionViewWillEnter(){
+    console.log(this.routes.snapshot.paramMap.get('id'));
+    this.event_id = this.routes.snapshot.paramMap.get('id');
+
+    this.authServ.getPreEvents(this.event_id ).subscribe(response => {
+      
+       console.log(response);
+       this.data = response;
+     });
+
+  }
 
   ngOnInit() {
   }
 
-  clickPreEvent(){
-    this.router.navigateByUrl('/candidate')
+  clickPreEvent(pre_id){
+    this.router.navigateByUrl('/candidate/'+pre_id)
   }
 
   clickBack(){

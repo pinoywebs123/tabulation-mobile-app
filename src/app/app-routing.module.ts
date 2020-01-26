@@ -20,7 +20,7 @@ const routes: Routes = [
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
   },
   {
-    path: 'candidate',
+    path: 'candidate/:id',
     loadChildren: () => import('./candidate/candidate.module').then( m => m.CandidatePageModule)
   },
   {
@@ -32,7 +32,7 @@ const routes: Routes = [
     loadChildren: () => import('./about/about.module').then( m => m.AboutPageModule)
   },
   {
-    path: 'pevent',
+    path: 'pevent/:id',
     loadChildren: () => import('./pevent/pevent.module').then( m => m.PeventPageModule)
   }
 

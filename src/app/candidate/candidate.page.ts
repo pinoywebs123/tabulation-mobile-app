@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-candidate',
@@ -9,10 +10,26 @@ import { Router } from '@angular/router';
 export class CandidatePage implements OnInit {
 
   constructor(
-    private router: Router
+    private router: Router,
+    private routes: ActivatedRoute,
+    private authServ: AuthService,
   ) { }
 
   public messageslist = "male";
+  public pre_id : any;
+  public data: any;
+
+  ionViewWillEnter(){
+    console.log(this.routes.snapshot.paramMap.get('id'));
+    this.pre_id = this.routes.snapshot.paramMap.get('id');
+
+    this.authServ.getCandidateCriteria(this.pre_id ).subscribe(response => {
+       console.log(response);
+       this.data = response;
+     });
+
+  }
+
 
   ngOnInit() {
   }

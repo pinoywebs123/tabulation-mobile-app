@@ -15,7 +15,20 @@ export class AuthService {
   ) { }
 
   getTest(){
-    return this.http.get('http://192.168.254.100/web_tabulation/public/api/morley');
+    //192.168.5.11
+    return this.http.get('http://192.168.254.100/web_tabulation/api/morley');
    
+  }
+
+  getEvents(){
+    return this.http.get('http://192.168.254.100/web_tabulation/api/getEvents');
+  }
+
+  getPreEvents(event_id){
+    return this.http.get('http://192.168.254.100/web_tabulation/api/getPreEvents/'+event_id);
+  }
+
+  getCandidateCriteria(pre_event_id){
+    return this.http.get('http://192.168.254.100/web_tabulation/api/candidate_criteria/'+pre_event_id);
   }
 }

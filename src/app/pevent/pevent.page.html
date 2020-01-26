@@ -6,18 +6,14 @@
 
 <ion-content>
 
-  <ion-list>
+  <ion-list *ngFor="let preevent of data">
 
-    <ion-item (click)="clickPreEvent()">
+    <ion-item (click)="clickPreEvent(preevent.id)">
       <ion-icon name="ribbon" slot="start"></ion-icon>
-      <ion-label>Pre Event Description....</ion-label>
+      <ion-label>{{preevent.name}}</ion-label>
     </ion-item>
 
-    <ion-item (click)="clickPreEvent()">
-      <ion-icon name="ribbon" slot="start"></ion-icon>
-      <ion-label>Pre Event Description....</ion-label>
-    </ion-item>
-
+  
   </ion-list>
 
 </ion-content>
