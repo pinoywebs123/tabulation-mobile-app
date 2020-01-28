@@ -17,7 +17,7 @@ export class CandidatePage implements OnInit {
 
   public messageslist = "male";
   public pre_id : any;
-  public data: any;
+  public candidates: any;
 
   ionViewWillEnter(){
     console.log(this.routes.snapshot.paramMap.get('id'));
@@ -25,7 +25,8 @@ export class CandidatePage implements OnInit {
 
     this.authServ.getCandidateCriteria(this.pre_id ).subscribe(response => {
        console.log(response);
-       this.data = response;
+       this.candidates = response['candidates'];
+       console.log(this.candidates);
      });
 
   }
@@ -43,7 +44,18 @@ export class CandidatePage implements OnInit {
   }
 
   clickCandidate(id){
+    console.log(id);
     this.router.navigateByUrl('/candidateinfo/'+id);
+  }
+
+  clickLogout(){
+    return this.authServ.getLogout().subscribe(response => {
+      console.log(response);
+      if(response['status'] == 200){
+        this.router.navigateByUrl('/login');
+        localStorage.removeItem("token");
+      }
+    })
   }
 
 }

@@ -1,6 +1,12 @@
 <ion-header>
   <ion-toolbar color="danger">
     <ion-title>List of Candidates</ion-title>
+    <ion-buttons slot="secondary">
+     
+      <ion-button (click)="clickLogout()">
+        <ion-icon slot="icon-only" name="log-out"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -16,74 +22,40 @@
   </ion-segment>
 
   <div [ngSwitch]="messageslist">
-    <ion-list *ngSwitchCase="'male'">
+    <ion-list *ngSwitchCase="'male'" >
 
-      <ion-item (click)="clickCandidate(21)">
-        <ion-avatar slot="start">
-          <img src="assets/images/1.jpg">
-        </ion-avatar>
-        <ion-label>
-          <ion-badge color="danger">1</ion-badge>
-          <h3>Name here</h3>
-          
-        </ion-label>
-      </ion-item>
-  
-      <ion-item (click)="clickCandidate(12)">
-        <ion-avatar slot="start">
-          <img src="assets/images/2.jpg">
-        </ion-avatar>
-        <ion-label>
-          <ion-badge color="danger">2</ion-badge>
-          <h3>Name here</h3>
-          
-        </ion-label>
-      </ion-item>
+      <div *ngFor="let candi of candidates" >
+        <ion-item *ngIf="candi.gender == 'M'" (click)="clickCandidate(candi.id)">
+          <ion-avatar slot="start">
+            <img src="assets/images/1.jpg">
+          </ion-avatar>
+          <ion-label>
+            <ion-badge color="danger">{{candi.id}}</ion-badge>
+            <h3>{{candi.f_name}} {{candi.l_name}}</h3>
+            
+          </ion-label>
+        </ion-item>
+      </div>
   
     </ion-list>
 
     <ion-list *ngSwitchCase="'female'">
 
-      <ion-item (click)="clickCandidate(1)">
-        <ion-avatar slot="start">
-          <img src="assets/images/3.jpg">
-        </ion-avatar>
-        <ion-label>
-          <ion-badge color="danger">3</ion-badge>
-          <h3>Name here</h3>
-          
-        </ion-label>
-      </ion-item>
-  
-      <ion-item (click)="clickCandidate(2)">
-        <ion-avatar slot="start">
-          <img src="assets/images/3.jpg">
-        </ion-avatar>
-        <ion-label>
-          <ion-badge color="danger">4</ion-badge>
-          <h3>Name here</h3>
-          
-        </ion-label>
-      </ion-item>
+      <div *ngFor="let candi of candidates" >
+        <ion-item *ngIf="candi.gender == 'F'"  (click)="clickCandidate(candi.id)">
+          <ion-avatar slot="start">
+            <img src="assets/images/1.jpg">
+          </ion-avatar>
+          <ion-label>
+            <ion-badge color="danger">{{candi.id}}</ion-badge>
+            <h3>{{candi.f_name}} {{candi.l_name}}</h3>
+            
+          </ion-label>
+        </ion-item>
+      </div>
   
     </ion-list>
   </div>
  
 </ion-content>
 
-
-
-<ion-footer>
-  <ion-toolbar color="danger" class="ion-text-center">
-
-    <ion-buttons slot="secondary">
-      <ion-button (click)="clickBack()">
-        <ion-icon slot="icon-only" name="skip-backward"></ion-icon>
-      </ion-button>
-      <ion-button>
-        <ion-icon slot="icon-only" name="home"></ion-icon>
-      </ion-button>
-    </ion-buttons>
-   
-  </ion-toolbar>
-</ion-footer>

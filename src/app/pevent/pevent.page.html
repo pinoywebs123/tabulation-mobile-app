@@ -1,6 +1,12 @@
 <ion-header>
   <ion-toolbar color="danger">
     <ion-title>Pre-Event</ion-title>
+    <ion-buttons slot="secondary">
+     
+      <ion-button (click)="clickLogout()">
+        <ion-icon slot="icon-only" name="log-out"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -17,16 +23,3 @@
   </ion-list>
 
 </ion-content>
-<ion-footer>
-  <ion-toolbar color="danger" class="ion-text-center">
-
-    <ion-buttons slot="secondary">
-      <ion-button (click)="clickBack()">
-        <ion-icon slot="icon-only" name="skip-backward"></ion-icon>
-      </ion-button>
-      <ion-button>
-        <ion-icon slot="icon-only" name="home"></ion-icon>
-      </ion-button>
-    </ion-buttons>
-   
-  </ion-toolbar>

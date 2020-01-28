@@ -6,4 +6,27 @@
 
 <ion-content>
 
+  <ion-card *ngIf="candidate_info">
+    <img src="assets/images/1.jpg">
+    <ion-card-header>
+      <ion-card-subtitle>
+        <ion-badge color="danger">No. {{candidate_info.id}}</ion-badge>
+      </ion-card-subtitle>
+      <ion-card-title>Name: {{candidate_info.f_name}} {{candidate_info.l_name}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+     Address: {{candidate_info.address}}
+    </ion-card-content>
+  </ion-card>
+
+  <ion-list *ngFor="let cri of criterias">
+    <ion-item>
+      <ion-label>{{cri.name}} <ion-badge color="danger">{{cri.ratio}}%</ion-badge> </ion-label>
+      <ion-input placeholder="Enter Score" [(ngModel)]="crit[cri.id]"></ion-input>
+    </ion-item>
+    
+
+  </ion-list>
+
+  <ion-button expand="full" (click)="clickSubmitScore()">SUBMIT</ion-button>
 </ion-content>

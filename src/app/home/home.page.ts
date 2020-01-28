@@ -26,4 +26,14 @@ export class HomePage {
     this.router.navigateByUrl('/pevent/'+event_id);
   }
 
+  clickLogout(){
+    return this.authServ.getLogout().subscribe(response => {
+      console.log(response);
+      if(response['status'] == 200){
+        this.router.navigateByUrl('/login');
+        localStorage.removeItem("token");
+      }
+    })
+  }
+
 }
